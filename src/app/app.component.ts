@@ -9,14 +9,19 @@ import { SearchService } from './services/search.service';
 export class AppComponent implements OnInit {
   public title = 'SWAPI';
   public items: any[];
+  public loading: boolean;
 
   constructor(private searchService: SearchService) {
-
     this.items = [];
+    this.loading = false;
   }
 
   ngOnInit() {
+    this.loading = true;
     this.searchService.loadPeople();
-    this.searchService.items.subscribe((items) => this.items = items);
+    this.searchService.items.subscribe((items) => {
+      this.items = items;
+      this.loading = !this.items.length;
+    });
   }
 }

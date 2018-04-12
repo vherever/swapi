@@ -4,4 +4,8 @@
   </h1>
 </div>
 
-<div>People: {{ items | json }}</div>
+<div *ngIf="loading; else characterList">Loading...</div>
+
+<ng-template #characterList>
+  <app-character-list [items]="items"></app-character-list>
+</ng-template>
