@@ -1,3 +1,5 @@
+<input type="text" [value]="filterText" [placeholder]="filterPlaceholder" [formControl]="filterInput" />
+
 <ul>
-  <li *ngFor="let item of items">{{ item.name }}</li>
+  <li *ngFor="let item of items | filter:{ name: filterText, age: filterText }">{{ item.name }}</li>
 </ul>

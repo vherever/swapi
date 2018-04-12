@@ -6,16 +6,21 @@ import { AppComponent } from './app.component';
 
 import { SearchService } from './services/search.service';
 import { CharacterListComponent } from './character-list/character-list.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

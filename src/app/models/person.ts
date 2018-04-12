@@ -1,9 +1,13 @@
 export class Person {
   constructor(
-    private name: string,
-    private films: any
+    public name: string,
+    public films: any,
+    public starships: any,
+    public birth_year: string,
   ) {
     this.name = name;
     this.films = films;
+    this.starships = starships;
+    this.birth_year = birth_year;
   }
 }

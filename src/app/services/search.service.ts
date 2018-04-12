@@ -41,12 +41,14 @@ export class SearchService {
       });
   }
 
-  private saveResults(data: any[]) {
+  private saveResults(data: Person[]) {
     this.results = this.results.concat(
       data.map(item => {
         return new Person(
           item.name,
-          item.films
+          item.films,
+          item.starships,
+          item.birth_year
         );
       })
     );
