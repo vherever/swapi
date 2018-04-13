@@ -1,16 +1,14 @@
-<input type="text" [value]="filterText" [placeholder]="filterPlaceholder" [formControl]="filterInput" />
+<div class="swapi-container">
+  <div class="ui left icon input">
+    <input type="text" [value]="filterText" [placeholder]="filterPlaceholder" [formControl]="filterInput" />
+    <i class="users icon"></i>
+  </div>
 
-<table width="100%">
-  <tr>
-      <td width="50%" valign="top">
-        <ul>
-          <li *ngFor="let item of items | filter:{ name: filterText, birth_year: filterText }"
-              (click)="onItemClick(item)">{{ item.name }}</li>
-        </ul>
-      </td>
+  <div *ngFor="let item of items | filter:{ name: filterText, birth_year: filterText }"
+       (click)="onItemClick(item)"
+       class="ui link list">
+    <a class="item">{{ item.name }}</a>
+  </div>
+</div>
 
-      <td width="50%" valign="top">
-        <router-outlet></router-outlet>
-      </td>
-  </tr>
-</table>
+<router-outlet></router-outlet>

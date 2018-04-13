@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start8080": "ng serve --port 8080",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
