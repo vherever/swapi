@@ -1,6 +1,8 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/debounceTime';
+import {Person} from '../models/person';
 
 @Component({
   selector: 'app-character-list',
@@ -8,14 +10,20 @@ import 'rxjs/add/operator/debounceTime';
   styleUrls: ['./character-list.component.css']
 })
 export class CharacterListComponent implements OnInit {
-  @Input() items: any[];
+  @Input() items: Array<Person>;
 
   public enableFilter: boolean;
   public filterText: string;
   public filterPlaceholder: string;
   public filterInput = new FormControl();
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {}
+
+  public onItemClick(item) {
+    const id = item.key;
+    this.router.navigate(['/people', id]);
   }
 
   ngOnInit() {
@@ -28,7 +36,6 @@ export class CharacterListComponent implements OnInit {
       .debounceTime(200)
       .subscribe(term => {
         this.filterText = term;
-        console.log(term);
       });
   }
 

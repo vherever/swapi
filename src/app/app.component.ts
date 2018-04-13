@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     this.searchService.loadPeople();
     this.searchService.items.subscribe((items) => {
       this.items = items;
+      console.log('items', this.items);
       this.loading = !this.items.length;
     });
   }

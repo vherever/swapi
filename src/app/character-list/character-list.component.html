@@ -1,5 +1,16 @@
 <input type="text" [value]="filterText" [placeholder]="filterPlaceholder" [formControl]="filterInput" />
 
-<ul>
-  <li *ngFor="let item of items | filter:{ name: filterText, age: filterText }">{{ item.name }}</li>
-</ul>
+<table width="100%">
+  <tr>
+      <td width="50%" valign="top">
+        <ul>
+          <li *ngFor="let item of items | filter:{ name: filterText, birth_year: filterText }"
+              (click)="onItemClick(item)">{{ item.name }}</li>
+        </ul>
+      </td>
+
+      <td width="50%" valign="top">
+        <router-outlet></router-outlet>
+      </td>
+  </tr>
+</table>

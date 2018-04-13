@@ -1,0 +1,22 @@
+<div *ngIf="info">
+  <div>Name: {{ info.name }}</div>
+  <div>Birth Date: {{ info.birth_year }}</div>
+
+  <div *ngIf="info.films.length">
+    <div>Films:</div>
+    <ul>
+      <li *ngFor="let item of info.films">
+        <a href="{{ item }}" target="_blank">{{ item }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="info.starships.length">
+    <div>Starships:</div>
+    <ul>
+      <li *ngFor="let item of info.starships">
+        <a href="{{ item }}" target="_blank">{{ item }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
