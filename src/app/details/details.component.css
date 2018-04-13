@@ -1,6 +1,6 @@
 .swapi-details {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 25px;
+  right: 25px;
   width: 400px;
 }

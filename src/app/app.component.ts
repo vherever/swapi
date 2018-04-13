@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from './services/search.service';
+import {Person} from './models/person';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { SearchService } from './services/search.service';
 })
 export class AppComponent implements OnInit {
   public title = 'SWAPI';
-  public items: any[];
+  public items: Person[];
   public loading: boolean;
 
   constructor(private searchService: SearchService) {

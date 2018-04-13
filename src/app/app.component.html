@@ -1,16 +1,16 @@
-<div *ngIf="loading; else characterList">
-  <div class="ui segment swapi-loader">
-    <div class="ui active dimmer">
-      <div class="ui text loader">Loading</div>
-    </div>
-    <p></p>
-  </div>
-</div>
-
 <div class="swapi-container">
-  <h1 class="ui header">
-    Welcome to {{ title }}!
-  </h1>
+  <div class="ui segment">
+    <h2 class="ui header swapi-h2">Welcome to {{ title }}</h2>
+    <div class="ui clearing divider"></div>
+    <div *ngIf="loading; else characterList">
+      <div class="ui segment swapi-loader">
+        <div class="ui active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>
+        <p></p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #characterList>

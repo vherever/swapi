@@ -2,3 +2,15 @@
   width: 400px;
   margin: 0 auto;
 }
+.swapi-list {
+  height: 350px;
+  max-height: 350px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+.swapi-input-box {
+  width: 100%;
+}
+.swapi-label {
+  margin-left: 10px;
+}

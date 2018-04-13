@@ -8,6 +8,10 @@
   margin: 0;
 }
 .swapi-container {
-  width: 400px;
+  width: 450px;
   margin: 0 auto;
+  padding-top: 25px;
+}
+.swapi-h2 {
+  text-align: center;
 }
