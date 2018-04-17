@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {SearchService} from '../services/search.service';
+import {HelperService} from '../services/helper.service';
 
 @Component({
   selector: 'app-details',
@@ -14,13 +15,15 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private helperService: HelperService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.searchService.getPerson(params.id).subscribe((data) => {
         this.info = data;
+        this.helperService.emitChange(params.id);
       });
     });
   }

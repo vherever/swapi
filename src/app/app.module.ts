@@ -9,6 +9,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { DetailsComponent } from './details/details.component';
+import {HelperService} from './services/helper.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { DetailsComponent } from './details/details.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SearchService],
+  providers: [SearchService, HelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

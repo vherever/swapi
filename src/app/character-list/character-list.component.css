@@ -14,3 +14,10 @@
 .swapi-label {
   margin-left: 10px;
 }
+.isActive a {
+  color: #1abc9c !important;
+}
+.isActive .swapi-label {
+  background-color: #1abc9c !important;
+  color: #ffffff !important;
+}

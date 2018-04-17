@@ -22,7 +22,7 @@ export class SearchService {
   }
 
   // Call it from component
-  public loadPeople() {
+  public loadPeople(): void {
     this.results = [];
     this.key = 1;
     this.requests = new Subject();
@@ -34,6 +34,7 @@ export class SearchService {
     const subject = new BehaviorSubject<Person>(undefined);
     this.items.subscribe((res: Array<Person>) => {
       const result = res.filter((obj, key) => {
+        obj.active = false;
         return key === id - 1;
       });
       console.log('result', result[0]);
@@ -42,7 +43,7 @@ export class SearchService {
     return subject;
   }
 
-  private sendRequest(url: string) {
+  private sendRequest(url: string): void {
     this.http.get(url)
       .subscribe((res: any) => {
         this.saveResults(res.results);
@@ -54,11 +55,12 @@ export class SearchService {
       });
   }
 
-  private saveResults(data: Person[]) {
+  private saveResults(data: Person[]): void {
     this.results = this.results.concat(
       data.map(item => {
         return new Person(
           this.key ++,
+          false,
           item.name,
           item.films,
           item.starships,
@@ -68,7 +70,7 @@ export class SearchService {
     );
   }
 
-  private completeRequest() {
+  private completeRequest(): void {
     this._items.next(this.results);
   }
 

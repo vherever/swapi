@@ -10,7 +10,7 @@
 
   <div class="swapi-list">
     <div *ngFor="let item of items | filter:{ name: filterText, birth_year: filterText }"
-         (click)="onItemClick(item)"
+         (click)="onItemClick(item)" [ngClass]="{'isActive': item.active}"
          class="ui link list">
       <a class="item">{{ item.name }} <div class="ui mini label swapi-label">{{ item.birth_year }}</div></a>
     </div>
