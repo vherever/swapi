@@ -40,7 +40,9 @@ export class CharacterListComponent implements OnInit {
 
   ngOnInit() {
     this.helperService.changeEmitted$.subscribe((id: number) => {
-      this.setActiveFlag(id);
+      if (id) {
+        this.setActiveFlag(id);
+      }
     });
 
     this.enableFilter = true;
