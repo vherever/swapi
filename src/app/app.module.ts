@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { DetailsComponent } from './details/details.component';
 import {HelperService} from './services/helper.service';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterPipe,
     CharacterListComponent,
-    DetailsComponent
+    DetailsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

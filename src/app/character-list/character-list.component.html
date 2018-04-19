@@ -3,10 +3,7 @@
     You can filter by name, birth year
   </div>
 
-  <div class="ui left icon input swapi-input-box">
-    <input type="text" [value]="filterText" [placeholder]="filterPlaceholder" [formControl]="filterInput" />
-    <i class="users icon"></i>
-  </div>
+  <app-filter (notifyFilter)="onNotifyFilter($event)"></app-filter>
 
   <div class="swapi-list">
     <div *ngFor="let item of items | filter:{ name: filterText, birth_year: filterText }"

@@ -13,10 +13,7 @@ import {HelperService} from '../services/helper.service';
 export class CharacterListComponent implements OnInit {
   @Input() items: Array<Person>;
 
-  public enableFilter: boolean;
   public filterText: string;
-  public filterPlaceholder: string;
-  public filterInput = new FormControl();
 
   constructor(
     private router: Router,
@@ -38,23 +35,16 @@ export class CharacterListComponent implements OnInit {
     }, 10);
   }
 
+  onNotifyFilter(message: string): void {
+    this.filterText = message;
+  }
+
   ngOnInit() {
     this.helperService.changeEmitted$.subscribe((id: number) => {
       if (id) {
         this.setActiveFlag(id);
       }
     });
-
-    this.enableFilter = true;
-    this.filterText = '';
-    this.filterPlaceholder = 'Filter..';
-
-    this.filterInput
-      .valueChanges
-      .debounceTime(200)
-      .subscribe(term => {
-        this.filterText = term;
-      });
   }
 
 }
